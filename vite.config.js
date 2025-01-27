@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/llm-analyzer/', // Replace with your repository name
+  base: '/LLM-analyzer/', // Match the case in homepage URL
 });
