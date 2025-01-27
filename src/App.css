@@ -1,0 +1,527 @@
+/* --- GLOBAL CONTAINER AND LAYOUT --- */
+#root {
+  width: 100%;
+}
+
+.App {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/* Main container */
+.container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  justify-content: space-between;
+}
+
+.left-panel {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-panel {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+/* Form elements */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+}
+
+/* Specs form */
+.specs-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.specs-form h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: #2c3e50;
+}
+
+.spec-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spec-item label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+/* Model info card */
+.model-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.model-info h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+/* Results section */
+.results {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.results h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.result-card {
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Button styles */
+button {
+  background: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Tutorial section */
+.tutorial-section {
+  margin-top: 40px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .right-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- FORM ELEMENTS --- */
+.input-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  margin-left: 10px;
+  width: 200px;
+  font-size: 14px;
+}
+
+button:disabled {
+  background: #7f8c8d;
+  cursor: not-allowed;
+}
+
+/* Specs form styling */
+.specs-form {
+  background: #f5f6fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.specs-form h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.spec-grid input[type="number"] {
+  width: 100px;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+/* Make the model text input larger */
+.input-group input[type="text"] {
+  width: 400px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .input-group input[type="text"] {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .input-group label {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* --- MODEL INFO CARD --- */
+.model-info {
+  background: #ecf0f1;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.model-info h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+/* --- RESULTS SECTION --- */
+.results {
+  margin-top: 10px;
+}
+
+.results h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Each quantization card */
+.result-card {
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-card h4 {
+  margin: 0 0 15px 0;
+  color: inherit;
+  font-size: 1.2rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 8px;
+}
+
+.result-status {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.result-details {
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.result-details p {
+  margin: 8px 0;
+}
+
+/* Offload progress bar styles */
+.progress-bar-container {
+  margin: 12px 0;
+}
+
+.progress-label {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+.speed {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+/* --- TUTORIAL SECTION --- */
+.tutorial-section {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s;
+}
+
+.tutorial-header:hover {
+  background-color: #f1f3f5;
+}
+
+.tutorial-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #3498db;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.collapse-btn:hover {
+  background: #e9ecef;
+}
+
+.collapse-btn.expanded {
+  transform: rotate(0deg);
+}
+
+/* Animated slideDown for the tutorial content */
+.command-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.command-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.command-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.command-item h4 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.command-item code {
+  display: block;
+  background: #2d3436;
+  color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  position: relative;
+  overflow-x: auto;
+}
+
+.command-item code:hover {
+  background: #2c3e50;
+}
+
+.command-item p {
+  margin: 12px 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.command-item ul {
+  margin: 12px 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.command-item ul li {
+  margin: 8px 0;
+  color: #4a4a4a;
+  position: relative;
+  padding-left: 20px;
+}
+
+.command-item ul li:before {
+  content: "•";
+  color: #3498db;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.command-item ul code {
+  display: inline;
+  padding: 3px 6px;
+  margin: 0 2px;
+  background: #f0f0f0;
+  color: #2c3e50;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* System summary special styling */
+.command-item:last-child {
+  background: linear-gradient(135deg, #3498db10, #2ecc7110);
+  border: 1px solid #3498db20;
+}
+
+.command-item:last-child h4 {
+  color: #2980b9;
+  border-bottom-color: #2980b9;
+}
+
+.command-item:last-child ul li {
+  font-weight: 500;
+  color: #2c3e50;
+}
