@@ -31,8 +31,12 @@ function App() {
 
   useEffect(() => {
     const savedSpecs = localStorage.getItem('specs');
+    const savedModelId = localStorage.getItem('modelId');
     if (savedSpecs) {
       setSpecs(JSON.parse(savedSpecs));
+    }
+    if (savedModelId) {
+      setModelId(savedModelId);
     }
   }, []);
 
@@ -176,6 +180,7 @@ function App() {
       value = value.split('huggingface.co/')[1].trim();
     }
     setModelId(value);
+    localStorage.setItem('modelId', value);
   };
 
   const getStatusColor = (runType) => {
