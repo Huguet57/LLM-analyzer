@@ -101,17 +101,6 @@ function Tutorial({ isTutorialVisible, setIsTutorialVisible }) {
               <li>High-end desktop/server systems may support quad channel (4 channels)</li>
             </ul>
           </div>
-          <div className="command-item">
-            <h4>Your System Summary:</h4>
-            <ul>
-              <li>RAM: 61GB</li>
-              <li>RAM Bandwidth: ~76.8 GB/s</li>
-              <li>GPU: RTX 4090</li>
-              <li>VRAM: 24GB</li>
-              <li>VRAM Bandwidth: ~1000 GB/s (effective)</li>
-              <li>GPUs: 1</li>
-            </ul>
-          </div>
         </div>
       )}
     </div>
